@@ -13,9 +13,9 @@ class WeatherAPIModel extends WeatherEntity {
   factory WeatherAPIModel.fromMap(Map<String, dynamic> map) {
     return WeatherAPIModel(
       cityName: map['name'] as String,
-      temperature: map['main']['temp'] as double,
+      temperature: (map['main']['temp'] as num).toDouble(),
       humidity: map['main']['humidity'] as int,
-      windSpeed: map['wind']['speed'] as double,
+      windSpeed: (map['wind']['speed'] as num).toDouble(),
     );
   }
 
