@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:weather_app/core/error/failure.dart';
 import 'package:weather_app/features/home/domain/entities/weather_entity.dart';
 import 'package:weather_app/features/home/domain/use_cases/get_weather_details.dart';
 
@@ -22,7 +23,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     emit(WeatherLoadingState());
     final result = await getWeatherDetailsUseCase(event.cityName);
     result.fold((l) {
-      emit(WeatherErrorState(l.message));
+      emit(WeatherErrorState(l));
     }, (r) {
       emit(WeatherLoadedState(r));
     });

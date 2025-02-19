@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/features/home/presentation/components/city_data_view.dart';
+import 'package:weather_app/features/home/presentation/components/error_page.dart';
 import 'package:weather_app/features/home/presentation/controller/bloc/weather_bloc.dart';
 
 class FullDetailsScreen extends StatelessWidget {
@@ -41,7 +42,7 @@ class FullDetailsScreen extends StatelessWidget {
                 fetchedWeather: s.weatherEntity,
                 cachedWeather: s.weatherEntity,
               ),
-            WeatherErrorState s => Center(child: Text(s.msg)),
+            WeatherErrorState s => ErrorPage(failure: s.failure),
             WeatherInitialState _ => SizedBox(),
             WeatherLoadingState _ => Center(child: CircularProgressIndicator()),
           },

@@ -17,6 +17,6 @@ final class WeatherLoadedState extends WeatherState {
 final class WeatherLoadingState extends WeatherState {}
 
 final class WeatherErrorState extends WeatherState {
-  final String msg;
-  const WeatherErrorState(this.msg);
+  final Failure failure;
+  const WeatherErrorState(this.failure);
 }
