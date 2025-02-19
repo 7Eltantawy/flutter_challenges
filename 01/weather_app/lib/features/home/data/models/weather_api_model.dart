@@ -1,7 +1,11 @@
 import 'dart:convert';
 
+import 'package:hive/hive.dart';
 import 'package:weather_app/features/home/domain/entities/weather_entity.dart';
 
+part 'weather_api_model.g.dart';
+
+@HiveType(typeId: 0)
 class WeatherAPIModel extends WeatherEntity {
   const WeatherAPIModel({
     required super.cityName,

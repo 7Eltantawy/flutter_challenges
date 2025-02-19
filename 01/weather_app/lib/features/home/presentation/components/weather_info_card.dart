@@ -77,7 +77,7 @@ class _ValueCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: backgroundColor.withAlpha(25),
+      color: backgroundColor.withAlpha(100),
       constraints: BoxConstraints(minHeight: 70),
       child: Center(
         child: Text(

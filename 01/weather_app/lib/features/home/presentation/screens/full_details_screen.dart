@@ -34,7 +34,7 @@ class FullDetailsScreen extends StatelessWidget {
           body: switch (state) {
             WeatherLoadedState s => CityDataView(
                 fetchedWeather: s.weatherEntity,
-                cachedWeather: s.weatherEntity,
+                cachedWeather: s.cachedWeatherEntity,
               ),
             WeatherErrorState s => ErrorPage(failure: s.failure),
             WeatherInitialState _ => SizedBox(),
