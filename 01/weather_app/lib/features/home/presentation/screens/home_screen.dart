@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/features/home/presentation/screens/full_details_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -44,12 +45,13 @@ class HomeScreen extends StatelessWidget {
                 )),
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return Scaffold(
-                        appBar: AppBar(title: Text(cityNameController.text)),
-                      );
-                    }));
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return FullDetailsScreen();
+                        },
+                      ),
+                    );
                   }
                 },
                 child: Text("Get Details"),
