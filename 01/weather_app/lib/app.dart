@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/core/di/dependency_injection.dart';
+import 'package:weather_app/features/home/presentation/controller/bloc/weather_bloc.dart';
 import 'package:weather_app/features/home/presentation/screens/home_screen.dart';
 
 class WeatherApp extends StatelessWidget {
@@ -9,18 +12,21 @@ class WeatherApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Weather App',
-      navigatorKey: navigatorKey,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-          brightness: Brightness.dark,
+    return BlocProvider(
+      create: (context) => sl<WeatherBloc>(),
+      child: MaterialApp(
+        title: 'Weather App',
+        navigatorKey: navigatorKey,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.deepPurple,
+            brightness: Brightness.dark,
+          ),
+          useMaterial3: true,
         ),
-        useMaterial3: true,
+        home: HomeScreen(),
       ),
-      home: HomeScreen(),
     );
   }
 }
