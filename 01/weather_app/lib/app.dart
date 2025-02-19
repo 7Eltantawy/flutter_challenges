@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/features/home/presentation/screens/home_screen.dart';
 
 class WeatherApp extends StatelessWidget {
   const WeatherApp({super.key});
@@ -15,9 +16,7 @@ class WeatherApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const Scaffold(
-        body: Center(child: Text('Weather App')),
-      ),
+      home: HomeScreen(),
     );
   }
 }
