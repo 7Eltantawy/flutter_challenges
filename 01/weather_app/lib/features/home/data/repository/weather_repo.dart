@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:weather_app/core/error/exceptions.dart';
 import 'package:weather_app/core/error/failure.dart';
 import 'package:weather_app/features/home/data/data_source/weather_remote_data_source.dart';
@@ -13,11 +14,14 @@ class WeatherRepo implements BaseWeatherRepo {
   @override
   Future<Either<Failure, WeatherEntity>> getWeatherDetails(
       String cityName) async {
-    final result = await weatherRemoteDataSource.getWeatherDetails(cityName);
     try {
+      final result = await weatherRemoteDataSource.getWeatherDetails(cityName);
+
       return Right(result);
     } on ServerException catch (e) {
       return left(ServerFailure(e.apiErrorMsg.statusMsg));
+    } on DioException {
+      return left(NetworkFailure("There is an error in Network"));
     }
   }
 }
