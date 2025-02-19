@@ -41,7 +41,7 @@ class WeatherInfoCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: _ValueCard(
-                    value: oldValue,
+                    value: newValue,
                     backgroundColor: Colors.green,
                   ),
                 ),
