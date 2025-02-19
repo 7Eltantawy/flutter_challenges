@@ -68,6 +68,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: 'Enter city name for example "London"',
+                      suffixIcon: IconButton(
+                        onPressed: () => cityNameController.clear(),
+                        icon: Icon(Icons.clear),
+                      ),
                     ),
                     validator: (value) => value!.trim().isEmpty
                         ? "City name cannot be empty"
