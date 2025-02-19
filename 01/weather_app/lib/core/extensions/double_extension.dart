@@ -1,3 +1,3 @@
 extension DoubleExtension on double {
-  int toCelsius() => ((this - 32) / 1.8).round();
+  int kelvinToCelsius() => (this - 273.15).round();
 }

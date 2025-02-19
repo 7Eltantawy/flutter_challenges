@@ -22,7 +22,7 @@ class CityDataView extends StatelessWidget {
         WeatherInfoCard(
           title: "Temperature",
           iconData: Icons.sunny,
-          newValue: "${fetchedWeather.temperature.toCelsius()} °C",
+          newValue: "${fetchedWeather.temperature.kelvinToCelsius()} °C",
           oldValue: "45 °C",
         ),
         SizedBox(height: 15),
