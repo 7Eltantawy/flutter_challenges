@@ -21,7 +21,7 @@ class WeatherRemoteDataSource extends BaseWeatherRemoteDataSource {
     final data = response.data as Map<String, dynamic>;
 
     if (response.statusCode == 200) {
-      return WeatherAPIModel.fromJson(response.data);
+      return WeatherAPIModel.fromMap(data) as WeatherEntity;
     } else {
       throw ServerException(ApiErrorMsgModel.fromJson(data));
     }
