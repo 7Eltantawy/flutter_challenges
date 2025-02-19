@@ -31,5 +31,5 @@ Future<void> initSL() async {
   sl.registerLazySingleton(() => GetWeatherDetailsUseCase(sl()));
 
   ///Init blocs and cubits
-  sl.registerFactory(() => WeatherBloc(sl()));
+  sl.registerFactory(() => WeatherBloc(sl(), sl()));
 }
