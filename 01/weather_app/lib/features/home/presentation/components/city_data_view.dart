@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:flutter/material.dart';
+import 'package:weather_app/core/extensions/double_extension.dart';
 import 'package:weather_app/features/home/domain/entities/weather_entity.dart';
 import 'package:weather_app/features/home/presentation/components/weather_info_card.dart';
 
@@ -21,7 +22,7 @@ class CityDataView extends StatelessWidget {
         WeatherInfoCard(
           title: "Temperature",
           iconData: Icons.sunny,
-          newValue: "${fetchedWeather.temperature} °C",
+          newValue: "${fetchedWeather.temperature.toCelsius()} °C",
           oldValue: "45 °C",
         ),
         SizedBox(height: 15),
