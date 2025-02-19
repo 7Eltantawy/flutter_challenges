@@ -20,8 +20,17 @@ class WeatherRepo implements BaseWeatherRepo {
       return Right(result);
     } on ServerException catch (e) {
       return left(ServerFailure(e.apiErrorMsg.statusMsg));
-    } on DioException {
-      return left(NetworkFailure("There is an error in Network"));
+    } on DioException catch (e) {
+      switch (e.type) {
+        case DioExceptionType.badResponse:
+          return left(
+            ResponseFailure(
+              "Bad Response make sure to write a proper city name",
+            ),
+          );
+        default:
+          return left(NetworkFailure("There is an error in Network"));
+      }
     }
   }
 }
