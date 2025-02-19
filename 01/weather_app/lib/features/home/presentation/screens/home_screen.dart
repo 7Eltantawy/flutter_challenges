@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
     if (formKey.currentState!.validate()) {
       context
           .read<WeatherBloc>()
-          .add(GetWeatherDetailsEvent(cityNameController.text));
+          .add(GetWeatherDetailsEvent(cityNameController.text.trim()));
 
       Navigator.of(context).push(
         MaterialPageRoute(
@@ -69,8 +69,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       border: OutlineInputBorder(),
                       hintText: 'Enter city name for example "London"',
                     ),
-                    validator: (value) =>
-                        value!.isEmpty ? "City name cannot be empty" : null,
+                    validator: (value) => value!.trim().isEmpty
+                        ? "City name cannot be empty"
+                        : null,
                   ),
                 ],
               ),
