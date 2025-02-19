@@ -19,7 +19,7 @@ class WeatherInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     const double spacing = 15;
     return Container(
-      color: Colors.black.withAlpha(125),
+      color: Colors.black.withAlpha(200),
       child: Padding(
         padding: const EdgeInsets.all(spacing),
         child: Column(
@@ -43,6 +43,8 @@ class WeatherInfoCard extends StatelessWidget {
                   child: _ValueCard(
                     value: newValue,
                     backgroundColor: Colors.green,
+                    textColor:
+                        newValue == oldValue ? Colors.black : Colors.white,
                   ),
                 ),
                 if (newValue != oldValue)
