@@ -19,6 +19,7 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
     GetWeatherDetailsEvent event,
     Emitter<WeatherState> emit,
   ) async {
+    emit(WeatherLoadingState());
     final result = await getWeatherDetailsUseCase(event.cityName);
     result.fold((l) {
       emit(WeatherErrorState(l.message));
