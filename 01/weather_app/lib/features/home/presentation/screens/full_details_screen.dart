@@ -19,7 +19,7 @@ class FullDetailsScreen extends StatelessWidget {
               title: const Text("Full Details"),
               centerTitle: true,
               bottom: switch (state) {
-                WeatherLoadedState _ => PreferredSize(
+                WeatherLoadedState s => PreferredSize(
                     preferredSize: const Size.fromHeight(kToolbarHeight),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -29,7 +29,7 @@ class FullDetailsScreen extends StatelessWidget {
                           Icons.location_on,
                         ),
                         Text(
-                          "London",
+                          s.weatherEntity.cityName,
                         ),
                       ],
                     ),
