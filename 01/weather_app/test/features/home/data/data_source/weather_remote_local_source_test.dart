@@ -1,10 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hive/hive.dart';
 import 'package:mockito/mockito.dart';
 import 'package:weather_app/features/home/data/data_source/weather_remote_local_source.dart';
 import 'package:weather_app/features/home/data/models/weather_api_model.dart';
 
-class MockWeatherBox extends Mock implements Box<WeatherAPIModel> {}
+import '../../../../mocks/mock_classes.dart';
 
 void main() {
   late MockWeatherBox mockHiveBox;

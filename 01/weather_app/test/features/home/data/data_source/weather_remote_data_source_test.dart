@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:weather_app/core/constants/const.dart';
 import 'package:weather_app/core/error/exceptions.dart';
@@ -11,11 +10,8 @@ import 'package:weather_app/features/home/data/data_source/weather_remote_data_s
 import 'package:weather_app/features/home/domain/entities/weather_entity.dart';
 
 import '../../../../dummy/weather_api_response.dart';
-import 'weather_remote_data_source_test.mocks.dart';
+import '../../../../mocks/mock_classes.mocks.dart';
 
-// class DioMock extends Mock implements Dio {}
-
-@GenerateMocks([Dio])
 void main() {
   late MockDio dioMock;
   late WeatherRemoteDataSource weatherRemoteDataSource;

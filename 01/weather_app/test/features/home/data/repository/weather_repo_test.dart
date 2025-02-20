@@ -1,18 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:weather_app/core/error/exceptions.dart';
 import 'package:weather_app/core/error/failure.dart';
 import 'package:weather_app/core/network/api_error_msg_model.dart';
-import 'package:weather_app/features/home/data/data_source/weather_remote_data_source.dart';
 import 'package:weather_app/features/home/data/models/weather_api_model.dart';
 import 'package:weather_app/features/home/data/repository/weather_repo.dart';
 
-import 'weather_repo_test.mocks.dart';
+import '../../../../mocks/mock_classes.mocks.dart';
 
-@GenerateMocks([WeatherRemoteDataSource])
 void main() {
   late MockWeatherRemoteDataSource mockRemoteDataSource;
   late WeatherRepo weatherRepo;
