@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive/hive.dart';
 import 'package:weather_app/core/constants/const.dart';
@@ -16,9 +17,12 @@ Future<void> initSL() async {
   final weatherBox = await Hive.openBox<WeatherAPIModel>(kHiveBoxName);
   sl.registerLazySingleton<Box<WeatherAPIModel>>(() => weatherBox);
 
+  ///
+  sl.registerSingleton(Dio());
+
   ///Init DataSources
   sl.registerLazySingleton<BaseWeatherRemoteDataSource>(
-    () => WeatherRemoteDataSource(),
+    () => WeatherRemoteDataSource(sl()),
   );
   sl.registerLazySingleton<BaseWeatherLocalDataSource>(
     () => WeatherLocalDataSource(sl()),

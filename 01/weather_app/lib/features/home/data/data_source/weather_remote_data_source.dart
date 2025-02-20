@@ -10,6 +10,10 @@ abstract class BaseWeatherRemoteDataSource {
 }
 
 class WeatherRemoteDataSource extends BaseWeatherRemoteDataSource {
+  final Dio dio;
+
+  WeatherRemoteDataSource(this.dio);
+
   @override
   Future<WeatherEntity> getWeatherDetails(String cityName) async {
     final queryParams = {
@@ -17,7 +21,7 @@ class WeatherRemoteDataSource extends BaseWeatherRemoteDataSource {
       'appid': kApiKey,
     };
 
-    final response = await Dio().get(kApiBaseUrl, queryParameters: queryParams);
+    final response = await dio.get(kApiBaseUrl, queryParameters: queryParams);
     final data = response.data as Map<String, dynamic>;
 
     if (response.statusCode == 200) {
