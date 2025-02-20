@@ -16,17 +16,17 @@ void main() {
     mockWeatherBloc = MockWeatherBloc();
   });
 
+  Widget appWidget() => BlocProvider(
+        create: (context) => mockWeatherBloc,
+        child: MaterialApp(
+          home: HomeScreen(),
+        ),
+      );
+
   group("HomeScreen", () {
     testWidgets("Should have form error when city name is empty",
         (tester) async {
-      await tester.pumpWidget(
-        BlocProvider(
-          create: (context) => mockWeatherBloc,
-          child: MaterialApp(
-            home: HomeScreen(),
-          ),
-        ),
-      );
+      await tester.pumpWidget(appWidget());
 
       await tester.tap(find.byType(FilledButton));
       await tester.pump();
@@ -55,14 +55,7 @@ void main() {
         initialState: WeatherInitialState(),
       );
 
-      await tester.pumpWidget(
-        BlocProvider<WeatherBloc>.value(
-          value: mockWeatherBloc,
-          child: MaterialApp(
-            home: HomeScreen(),
-          ),
-        ),
-      );
+      await tester.pumpWidget(appWidget());
 
       final textFormField = find.byType(TextFormField);
       await tester.enterText(textFormField, cityName);
