@@ -16,7 +16,7 @@ void main() {
     mockWeatherBloc = MockWeatherBloc();
   });
 
-  Widget appWidget() => BlocProvider(
+  Widget appWidget() => BlocProvider<WeatherBloc>(
         create: (context) => mockWeatherBloc,
         child: MaterialApp(
           home: HomeScreen(),
