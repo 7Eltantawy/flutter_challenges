@@ -18,6 +18,14 @@ class ApiErrorMsgModel extends Equatable {
     );
   }
 
+  Map<String, dynamic> toMap() {
+    return <String, dynamic>{
+      'status_code': statusCode,
+      'status_message': statusMsg,
+      'success': success,
+    };
+  }
+
   @override
   List<Object> get props => [statusCode, statusMsg, success];
 }
